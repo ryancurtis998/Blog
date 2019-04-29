@@ -28,7 +28,7 @@ def theblog():
         title = blog_form.title.data
         pitch = blog_form.pitch.data
 
-        new_pitch = BLOG(m_blog_title = title, m_blog_content=pitch, m_blog_posted_on = datetime.now() , user = current_user)
+        new_pitch = Blog(m_blog_title = title, m_blog_content=pitch, m_blog_posted_on = datetime.now() , user = current_user)
         new_pitch.save_blog()
 
         #mail_message("Thank you for sending your first post","email/welcome_user",user.email,user=user)
@@ -45,12 +45,12 @@ def allblog():
 
     # random = requests.get('http://quotes.stormconsultancy.co.uk/random.json').json()
     all_pitches = Blog.get_all_blogs()
-    return render_template("allblog.html",pitches = all_pitches,random = random)
+    return render_template("allblog.html",pitches = all_pitches,)
 
 @main.route('/comments/<int:id>',methods = ['GET','POST'])
 def pitch(id):
 
-    my_pitch = BLOG.query.get(id)
+    my_pitch = Blog.query.get(id)
     comment_form = CommentForm()
 
     if id is None:
