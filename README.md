@@ -49,7 +49,7 @@ Blog is a web application that provides a platform for the user to comment on bl
     - Run ./start.py
 
     Incase you need to access / improve the application please follow the below steps
-    1.  Use this command $ git clone <https>
+    1.  Use this command $ git clone <https//github.com/ryancurtis998/Blog>
         This will clone the projects repository into a local folder on your device.
     2.  Open the files with an editor( preferably Atom. )
     3.  Study the code. learn from it. Improve on it.
