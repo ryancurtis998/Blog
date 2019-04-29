@@ -31,7 +31,7 @@ def theblog():
         new_pitch = Blog(m_blog_title = title, m_blog_content=pitch, m_blog_posted_on = datetime.now() , user = current_user)
         new_pitch.save_blog()
 
-        #mail_message("Thank you for sending your first post","email/welcome_user",user.email,user=user)
+        # mail_message("Thank you for sending your first post","email/welcome_user",user.email,user=user)
         return redirect(url_for('main.theblog'))
 
 
