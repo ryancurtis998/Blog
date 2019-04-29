@@ -11,6 +11,8 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ryan:12345@localhost/blog'
+
     #  email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
@@ -31,18 +33,6 @@ class ProdConfig(Config):
     """
 
     SQLALCHEMY_DATABASE_URI = os.environ.get("HEROKU_POSTGRESQL_CYAN_URL")
-    pass
-
-
-class DevConfig(Config):
-    """
-    Development  configuration child class
-    Args:
-        Config: The parent configuration class with General configuration settings
-    """
-
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://@localhost/blog'
-    DEBUG = True
 
 
 class TestConfig(Config):
@@ -52,7 +42,17 @@ class TestConfig(Config):
         Config: The parent configuration class with General configuration settings
     """
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://@localhost/blog'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ryan:12345@localhost/blog'
+
+class DevConfig(Config):
+    """
+    Development  configuration child class
+    Args:
+        Config: The parent configuration class with General configuration settings
+    """
+
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ryan:12345@localhost/blog'
+
     DEBUG = True
 
 

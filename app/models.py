@@ -18,7 +18,7 @@ class User(UserMixin,db.Model):
     hash_pass = db.Column(db.String(255))
     email = db.Column(db.String(255),unique = True, index = True)
 
-    pitches = db.relationship('BLOG',backref='user',lazy='dynamic')
+    pitches = db.relationship('Blog',backref='user',lazy='dynamic')
 
     @property
     def password(self):
@@ -37,7 +37,7 @@ class User(UserMixin,db.Model):
     def __repr__(self):
         return f'User {self.username}'
 
-class BLOG(db.Model):
+class Blog(db.Model):
     __tablename__ = 'm_blog'
 
     id = db.Column(db.Integer,primary_key = True)
@@ -52,12 +52,12 @@ class BLOG(db.Model):
 
     @classmethod
     def get_blog(cls,id):
-        blogs = BLOG.query.filter_by(id=id).all()
+        blogs = Blog.query.filter_by(id=id).all()
         return blogs
 
     @classmethod
     def get_all_blogs(cls):
-        blogs = BLOG.query.order_by('-id').all()
+        blogs = Blog.query.order_by('-id').all()
         return blogs
 
 class Comment(db.Model):

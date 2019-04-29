@@ -3,10 +3,9 @@ from . import main
 from datetime import datetime
 from time import time, sleep
 from .forms import BlogFormI, CommentForm, EmailFormI
-from ..models import User, BLOG, Comment, Subscribe
+from ..models import User, Blog, Comment, Subscribe
 from flask_login import login_required, current_user
 from ..email import mail_message
-import requests
 import json
 
 # Views
@@ -36,7 +35,7 @@ def theblog():
         return redirect(url_for('main.theblog'))
 
 
-    all_pitches = BLOG.get_all_blogs()
+    all_pitches = Blog.get_all_blogs()
 
     return render_template("theblog.html", pitch_form = blog_form, pitches = all_pitches)
 
@@ -44,8 +43,8 @@ def theblog():
 def allblog():
 
 
-    random = requests.get('http://quotes.stormconsultancy.co.uk/random.json').json()
-    all_pitches = BLOG.get_all_blogs()
+    # random = requests.get('http://quotes.stormconsultancy.co.uk/random.json').json()
+    all_pitches = Blog.get_all_blogs()
     return render_template("allblog.html",pitches = all_pitches,random = random)
 
 @main.route('/comments/<int:id>',methods = ['GET','POST'])
