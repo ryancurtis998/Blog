@@ -57,7 +57,7 @@ class Blog(db.Model):
 
     @classmethod
     def get_all_blogs(cls):
-        blogs = Blog.query.order_by('-id').all()
+        blogs = Blog.query.order_by('id').all()
         return blogs
 
 class Comment(db.Model):
