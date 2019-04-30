@@ -4,8 +4,7 @@ body{
     font: 400 15px/1.8 "Lato";
     font-family: 'ZCOOL KuaiLe', cursive;
     color:  #777;
-    background-image:url("https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
-
+    
   }
 
 .bgimg-1{
@@ -18,7 +17,7 @@ body{
    }
 
     .bgimg-1{
-        /* background-image:url("https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"); */ 
+         background-image:url("https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"); 
         min-height: 1000px;
     }
 
